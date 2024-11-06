@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1729773302 source:c:\users\etuvr\desktop\my-data_struckter-examples\data_struckter\main2.c
+
+1729773599 source:c:\users\etuvr\desktop\my-data_structure-examples\data_structure\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
