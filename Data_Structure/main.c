@@ -1,19 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <stdbool.h>
+#include "LinkedList_Methods.c"
 
 int main()
 {
-    clock_t start,end;
-    double cpu_time_used;
+    /**LinkedListMethods**/
+    {
+        List* myList = createList();
 
-    start= clock();
+        // Listeye eleman ekleme
+        myList->append(myList, 10);
+        myList->append(myList, 20);
+        myList->append(myList, 30);
 
-    for(int i=0;i<1000;i++)
-        printf("%d",i);
+        // Listeyi yazdırma
+        myList->print(myList);
 
-    end=clock();
+        // Eleman arama
+        printf("20 is %s in the list.\n", myList->search(myList, 20) ? "found" : "not found");
 
-    cpu_time_used=((double) (end-start))/CLOCKS_PER_SEC;
-    printf("\n%lf",cpu_time_used);
+        // Eleman silme
+        myList->remove(myList, 20);
+        myList->print(myList);
+
+        // Bulunamayan bir elemanı silmeye çalışma
+        myList->remove(myList, 40);
+
+        // Belleği temizleme
+        free(myList);
+    }
+
 }
+
