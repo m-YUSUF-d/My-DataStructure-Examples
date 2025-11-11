@@ -1,19 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void Example1();
-void Example2();
-void Example3();
-void Example4();
-void Example5();
-void Example6();
-void Example7();
-void Example8();
-void Example9();
-void Example10();
-void Example11();
-void Example12();
-
 int main()
 {
     int num;
