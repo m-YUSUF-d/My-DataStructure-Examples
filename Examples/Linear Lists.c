@@ -9,7 +9,7 @@ typedef struct MyNode
 } node;
 
 
-struct MyNode* CreateLinkedList(int i)
+node* CreateLinkedList(int i)
 {
     if (i <= 0) return NULL;
 
@@ -52,6 +52,7 @@ void AddEndofList(struct MyNode* list, int num)
     {
         list=list->next;
     }
+
     list->next = (node*)malloc(sizeof(node));
     list= list->next;
     list ->number=num;
@@ -117,16 +118,16 @@ void PrintLinkedList(struct MyNode* N)
 
 int main()
 {
-    node* N = CreateLinkedList(7);
+    node* N = CreateLinkedList(10);
     PrintLinkedList(N);
 
-    AddHeadOfList(&N,35);
-    AddEndofList(N,75);
+    AddHeadOfList(&N,-50);
+    AddEndofList(N,-100);
     PrintLinkedList(N);
 
-    Delete(&N,35);
+    Delete(&N,-100);
     Delete(&N,20);
-    Delete(&N,75);
+    Delete(&N,-50);
     PrintLinkedList(N);
 
     ReverseList(&N);

@@ -1,0 +1,5 @@
+# Derlenmiş çalıştırılabilir dosyalar
+*.exe
+
+# Object dosyaları
+*.o
