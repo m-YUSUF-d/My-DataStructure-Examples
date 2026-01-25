@@ -14,6 +14,7 @@ typedef struct MyQueue
 
 } queue;
 
+
 queue* Create()
 {
     queue* Q = (queue*)malloc(sizeof(queue));
@@ -24,23 +25,50 @@ queue* Create()
 }
 void Enqueue(queue* q,int num)
 {
-    queue* temp = q;
-    node* n = (node*)malloc(sizeof(node));
-    n
-}
-void Dequeue()
-{
+    node* newNode = (node*)malloc(sizeof(node));
+    newNode->data= num;
+    newNode-> next=NULL;
 
+    if(q->front ==NULL)
+    {
+        q->front=newNode;
+        q->rear=newNode;
+    }
+    else
+    {
+        q->rear->next =newNode;
+        q->rear=newNode;
+    }
+    q->counter++;
+    return 1;
+}
+void Dequeue(queue* q)
+{
+    if(q->front == NULL)
+        return 0;
+
+    node* temp = q->front;
+
+
+    q->front = q->front->next;
+    q->counter--;
+
+    if(q->front ==NULL)
+        q->rear =NULL;
+
+    free(temp);
+
+    return 1;
 }
 void PrintQueue(queue* q)
 {
     if(q==NULL || q->front ==NULL)
         return;
 
-    node* temp = q;
-    while(temp->next !=NULL)
+    node* temp = q->front;
+    while(temp!=NULL)
     {
-        printf("%d\n",temp->data);
+        printf("Data: %d , counter: %d \n", temp->data,q->counter);
         temp=temp->next;
     }
 }
@@ -51,10 +79,13 @@ int main()
     queue* Q = Create();
 
     Enqueue(Q,15);
-    Enqueue(Q,25);
+    Enqueue(Q,30);
+    Enqueue(Q,45);
+
     PrintQueue(Q);
 
-    Enqueue(Q,35);
     Dequeue(Q);
     Dequeue(Q);
+
+    PrintQueue(Q);
 }
